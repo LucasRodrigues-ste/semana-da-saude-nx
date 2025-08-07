@@ -24,3 +24,32 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer{
+
+  .hero{
+  @apply bg-gradient-to-b from-blue-300 to-blue-200
+  min-h-screen 
+  p-4
+  space-y-4;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  }
+
+  .footer{
+  @apply bg-blue-900 
+  p-2;
+  }
+
+  .navbar{
+    @apply bg-blue-900
+   drop-shadow-blue-700
+    justify-between
+    items-center
+    flex
+    p-3;
+  }
+
+}
