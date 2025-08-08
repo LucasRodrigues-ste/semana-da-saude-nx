@@ -12,11 +12,11 @@ export default function HomePage() {
 
             <Hero>
 
-                <div className="border-2 border-red-500 p-3 text-center">
-                    <h1>Jogos dos Alimentos Saudáveis</h1>
-                </div >
+                
+                    <h1 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl ">Jogos dos Alimentos Saudáveis</h1>
+                
 
-                <div className="border-2 border-red-700 flex justify-center flex-col space-y-4 p-2">
+                <div className="rounded-4xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-white">
 
                     <button className="game-btn">
                         <GameButon gamename="Quiz de Alimentos" url="/Games/QuizGame"></GameButon>

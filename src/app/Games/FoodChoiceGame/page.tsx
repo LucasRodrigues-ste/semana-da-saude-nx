@@ -1,3 +1,4 @@
+import logo from '../../../../public/placeholder.jpg'
 import Footer from "@/components/Footer/Footer";
 import "./style.css"
 import Hero from "@/components/Hero/Hero";
@@ -28,51 +29,159 @@ export default function FoodChoiceGame() {
                     </div>
                 </div>
 
+                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">Monte seu Prato</h2>
 
-                <div className="border-2 border-amber-600 flex justify-center flex-col space-y-2 p-2">
+                <div className="rounded-4xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-black">
 
-                    <h2 className="flex justify-center border-red-500 border">Monte seu Prato</h2>
 
-                    <div className="flex justify-evenly border-2 border-fuchsia-700">
+                    <div className="rounded-2xl bg-white/75 p-2 drop-shadow-lg drop-shadow-black/25 flex justify-evenly">
                         <span>Adequação:</span>
                         <div id="scoreValue">0%</div>
                     </div>
 
-                    <div className="border-2 border-teal-950 flex justify-center"> Feedback</div>
-                    <div className="additional-message"></div>
+                    <div className="rounded-2xl bg-white/75 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25 text-center"> Feedback</div>
 
-                    <div className="border-2 border-green-500 grid grid-cols-3 gap-4 p-4 "> 
+                    <div className="rounded-2xl bg-white/85 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25 sticky top-0 z-30 text-center">Contador</div>
+                    
+                    <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25"> 
 
-                        <div className="border-2 border-red-500 p-3">A</div>
-                        <div className="border-2 border-red-500 p-3">B</div>
-                        <div className="border-2 border-red-500 p-3">C</div>
-                        <div className="border-2 border-red-500 p-3">D</div>
-                        <div className="border-2 border-red-500 p-3">E</div> 
-                        <div className="border-2 border-red-500 p-3">F</div>
-                        <div className="border-2 border-red-500 p-3">G</div>
-                        <div className="border-2 border-red-500 p-3">H</div>
-                        <div className="border-2 border-red-500 p-3">I</div>
-                        <div className="border-2 border-red-500 p-3">J</div>
-                        <div className="border-2 border-red-500 p-3">a</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">a</div>
-                        <div className="border-2 border-red-500 p-3">a</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">K</div>
-                        <div className="border-2 border-red-500 p-3">m</div>
-                        <div className="border-2 border-red-500 p-3">ç</div>
-                        <div className="border-2 border-red-500 p-3">ç</div>
-                        <div className="border-2 border-red-500 p-3">ç</div>
-                        <div className="border-2 border-red-500 p-3">ç</div>
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
 
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+
+                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
+                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
+                        </div>
+                        
                     </div>
 
-                    <div className="flex justify-evenly border-2 border-red-500">
-                        <button className="">Avaliar Alimentação</button>
-                        <button className="back-btn" id="backChoiceBtn">Voltar ao Menu</button>
+                    <div  className="flex justify-evenly p-0.5 space-x-2 text-white">
+                    <button className="w-1/2 rounded-2xl bg-red-500 drop-shadow-lg drop-shadow-black/50 p-3">Voltar ao Menu</button>
+                    <button className="w-1/2 rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3">Avaliar alimentação</button>
                     </div>
                 </div>
 
