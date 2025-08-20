@@ -38,18 +38,4 @@ body {
   justify-content: center; 
   }
 
-  .footer{
-  @apply bg-blue-900 
-  p-2;
-  }
-
-  .navbar{
-    @apply bg-blue-900
-   drop-shadow-blue-700
-    justify-between
-    items-center
-    flex
-    p-3;
-  }
-
 }

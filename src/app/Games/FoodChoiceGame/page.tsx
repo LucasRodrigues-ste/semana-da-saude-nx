@@ -1,190 +1,180 @@
-import logo from '../../../../public/placeholder.jpg'
-import Footer from "@/components/Footer/Footer";
-import "./style.css"
-import Hero from "@/components/Hero/Hero";
-import NavBar from "@/components/NavBar/NavBar";
+'use client';
+
+import { useEffect, useState } from 'react';
+import Hero from '@/components/Hero/Hero';
+import Footer from '@/components/Footer/Footer';
+import NavBar from '@/components/NavBar/NavBar';
+import { GameButon } from '@/components/interface';
+
+type Food = {
+    name: string;
+    image: string;
+    group: string;
+    isHealthy: boolean;
+};
 
 export default function FoodChoiceGame() {
+    const [foods, setFoods] = useState<Food[]>([]);
+    const [selectedFoods, setSelectedFoods] = useState<Food[]>([]);
+    const [score, setScore] = useState<number>(0);
+    const [feedback, setFeedback] = useState<string>('');
+    const [showResults, setShowResults] = useState(false);
+
+    const maxSelections = 10;
+
+    const foodGroups = {
+        hortaliças: { ideal: 4, pointsPerItem: 30 },
+        proteínas: { ideal: 2, pointsPerItem: 15 },
+        carbs_bons: { ideal: 2, pointsPerItem: 20 },
+        leguminosas: { ideal: 1, pointsPerItem: 20 },
+        frutas: { ideal: 1, pointsPerItem: 30 },
+        carbs_ruins: { ideal: 0, pointsPerItem: 10 },
+        doces: { ideal: 0, pointsPerItem: 0 }
+    };
+
+    const essentialGroups = ['hortaliças', 'proteínas', 'carbs_bons', 'leguminosas', 'frutas'];
+    const bombaGroups = ['carbs_ruins', 'doces'];
+
+    useEffect(() => {
+        fetch('/data/foods.json')
+            .then((res) => res.json())
+            .then((data) => setFoods(data));
+    }, []);
+
+    const toggleFood = (food: Food) => {
+        const alreadySelected = selectedFoods.find(f => f.name === food.name);
+        if (alreadySelected) {
+            setSelectedFoods(selectedFoods.filter(f => f.name !== food.name));
+        } else if (selectedFoods.length < maxSelections) {
+            setSelectedFoods([...selectedFoods, food]);
+        }
+    };
+
+    const evaluateChoices = () => {
+        const groupCount: Record<string, number> = {};
+        Object.keys(foodGroups).forEach(group => groupCount[group] = 0);
+
+        selectedFoods.forEach(food => {
+            if (groupCount[food.group] !== undefined) {
+                groupCount[food.group]++;
+            }
+        });
+
+        let totalScore = 0;
+        let maxScore = 0;
+
+        Object.entries(foodGroups).forEach(([group, config]) => {
+            const selected = groupCount[group] || 0;
+            const ideal = config.ideal;
+            const pointsPerItem = config.pointsPerItem;
+
+            const groupScore = Math.min(selected, ideal) * pointsPerItem;
+            totalScore += groupScore;
+            maxScore += ideal * pointsPerItem;
+        });
+
+        // Penalidades
+        const bombaCount = selectedFoods.filter(f => bombaGroups.includes(f.group)).length;
+        const missingGroups = essentialGroups.filter(group => groupCount[group] === 0).length;
+
+        totalScore -= bombaCount * 20;
+        totalScore -= missingGroups * 15;
+
+        // Limite de pontuação
+        const finalScore = Math.min(totalScore, maxScore);
+        const percentage = Math.min(Math.round((finalScore / maxScore) * 100), 100);
+
+        setScore(percentage);
+        setFeedback(getFeedbackMessage(percentage, bombaCount));
+        setShowResults(true);
+    };
+
+    const getFeedbackMessage = (percentage: number, bombaCount: number) => {
+        if (percentage <= 50) return "Cuidado! Seu prato não está equilibrado.";
+        if (percentage <= 74) return "Você está no caminho certo! Pode melhorar.";
+        if (percentage <= 99) {
+            return bombaCount > 0
+                ? "Parabéns! Seu prato está saudável. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
+                : "Parabéns! Seu prato está saudável.";
+        }
+        return "Excelente! Seu prato está perfeito!";
+    };
+
+
+    const getFeedbackColor = (percentage: number): string => {
+        if (percentage <= 50) return 'text-red-600';
+        if (percentage <= 74) return 'text-yellow-600';
+        if (percentage <= 99) return 'text-green-600';
+        return 'text-blue-700';
+    };
+
+
     return (
         <>
-            <NavBar/>
+            <NavBar />
             <Hero>
+                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+                    Monte seu Prato
+                </h2>
 
-                <div className="hidden">
-                    <div className="tutorial-content">
-                        <h3>Como Montar seu Prato Saudável</h3>
-                        <div className="tutorial-instructions">
-                            <p>➡️ Selecione até 10 alimentos para montar seu prato ideal</p>
-                            <p>➡️ Tente incluir alimentos de diferentes grupos:</p>
-                            <ul>
-                                <li>🍅 Vegetais</li>
-                                <li>🍗 Proteínas</li>
-                                <li>🍚 Carboidratos</li>
-                                <li>🥦 Legumes</li>
-                                <li>🍎 Frutas</li>
-                            </ul>
-                            <p>➡️ Após selecionar, clique em "Avaliar" para ver seu resultado</p>
+                <div className="rounded-4xl bg-white/50 p-3 flex flex-col space-y-2 text-black">
+                    {showResults && (
+                        <>
+                            <div className={`rounded-2xl bg-white/75 p-2 flex justify-evenly text-balck ${getFeedbackColor(score)}`}>
+                                <span className='font-bold text-3xl'>Adequação:</span>
+                                <div className='font-bold text-3xl'>{score}%</div>
+                            </div>
+
+                            <div className={`rounded-2xl bg-white/75 p-2 text-3xl text-center ${getFeedbackColor(score)}`}>
+                                {feedback}
+                            </div>
+                        </>
+                    )}
+
+                    {!showResults && (
+                        <div className="rounded-2xl bg-white/85 p-2 text-center sticky top-0 z-10">
+                            {selectedFoods.length}/{maxSelections} alimentos selecionados
                         </div>
-                        <button id="startGameBtn" className="start-game-btn">Entendi, vamos começar!</button>
+                    )}
+
+                    {!showResults && (
+                        <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2">
+                            {foods.map((food, index) => {
+                                const isSelected = selectedFoods.some(f => f.name === food.name);
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
+                                        onClick={() => toggleFood(food)}
+                                    >
+                                        <img
+                                            src={food.image}
+                                            alt={food.name}
+                                            className="w-20 sm:w-32 hover:scale-110 transition-all"
+                                        />
+                                        <p>{food.name}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+
+                    <div className="flex justify-evenly p-0.5 space-x-2 text-white">
+                        <button className="w-1/2 rounded-2xl bg-red-500 p-3">
+                            <GameButon gamename="Voltar ao menu" url="/Games/GameSelector">Voltar ao Menu</GameButon>
+                        </button>
+                        <button
+                            className={`w-1/2 rounded-2xl p-3 ${selectedFoods.length === maxSelections ? 'bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+                                }`}
+                            onClick={evaluateChoices}
+                            disabled={selectedFoods.length !== maxSelections}
+                        >
+                            Avaliar alimentação
+                        </button>
+
                     </div>
+
                 </div>
-
-                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">Monte seu Prato</h2>
-
-                <div className="rounded-4xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-black">
-
-
-                    <div className="rounded-2xl bg-white/75 p-2 drop-shadow-lg drop-shadow-black/25 flex justify-evenly">
-                        <span>Adequação:</span>
-                        <div id="scoreValue">0%</div>
-                    </div>
-
-                    <div className="rounded-2xl bg-white/75 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25 text-center"> Feedback</div>
-
-                    <div className="rounded-2xl bg-white/85 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25 sticky top-0 z-30 text-center">Contador</div>
-                    
-                    <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25"> 
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-                        
-                    </div>
-
-                    <div  className="flex justify-evenly p-0.5 space-x-2 text-white">
-                    <button className="w-1/2 rounded-2xl bg-red-500 drop-shadow-lg drop-shadow-black/50 p-3">Voltar ao Menu</button>
-                    <button className="w-1/2 rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3">Avaliar alimentação</button>
-                    </div>
-                </div>
-
             </Hero>
             <Footer />
         </>

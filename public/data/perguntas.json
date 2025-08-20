@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Qual desses alimentos é a melhor fonte de vitamina C?",
+    "opcoes": ["Banana", "Laranja", "Maçã"],
+    "respostaCorreta": "Laranja",
+    "curiosidade": "As frutas cítricas, como a laranja, são riquíssimas em vitamina C, um nutriente essencial para fortalecer o sistema imunológico,favorecer a absorção do ferro presente em vegetais e auxiliar na produção de colágeno, importante para a pele e a cicatrização."
+  },
+  {
+    "id": 2,
+    "pergunta": "Qual é a principal função das fibras na alimentação?",
+    "opcoes": ["Fornecer energia rápida", "Melhorar a digestão e regular o intestino", "Aumentar a pressão arterial"],
+    "respostaCorreta": "Melhorar a digestão e regular o intestino",
+    "curiosidade": "As fibras alimentares, presentes em frutas, verduras, legumes, cereais integrais e leguminosas, ajudam no funcionamento do intestino, controlam os níveis de glicose no sangue, reduzem o colesterol e aumentam a sensação de saciedade, auxiliando no controle de peso."
+  },
+    {
+    "id": 3,
+    "pergunta": "Beber água durante as refeições faz mal?",
+    "opcoes": ["Sim, sempre", "Não, é mito", "Apenas se estiver gelada"],
+    "respostaCorreta": "Não, é mito",
+    "curiosidade": "Beber água moderadamente durante as refeições não prejudica a digestão. Pelo contrário, pode ajudar na mastigação e na deglutição dos alimentos. O que deve ser evitado é o consumo excessivo de líquidos, que pode causar desconforto ou dilatar o estômago."
+  },
+    {
+    "id": 4,
+    "pergunta": "Qual dessas gorduras é considerada “boa” para o coração?",
+    "opcoes": ["Gordura trans", "Gordura saturada da carne", "Gordura insaturada do azeite de oliva"],
+    "respostaCorreta": "Gordura insaturada do azeite de oliva",
+    "curiosidade": "As gorduras insaturadas, presentes no azeite de oliva, abacate, oleaginosas e peixes, ajudam a reduzir o colesterol “ruim” (LDL) e aumentar o colesterol “bom” (HDL), protegendo a saúde do coração e prevenindo doenças cardiovasculares."
+  },
+    {
+    "id": 5,
+    "pergunta": "Qual é a recomendação da OMS (Organização Mundial da Saúde) para consumo de sal por dia?",
+    "opcoes": ["2 gramas", "5 gramas", "10 gramas"],
+    "respostaCorreta": "5 gramas",
+    "curiosidade": "A OMS recomenda consumir no máximo 5 gramas de sal por dia (equivalente a 2.000 mg de sódio) para prevenir hipertensão, doenças do coração e problemas renais. O sal está presente não só no que adicionamos à comida, mas também em alimentos industrializados."
+  },
+    {
+    "id": 6,
+    "pergunta": "Qual é a principal fonte de energia para o nosso corpo?",
+    "opcoes": ["Carboidratos", "Proteínas", "Vitaminas"],
+    "respostaCorreta": "Carboidratos",
+    "curiosidade": "Os carboidratos são a principal fonte de energia para o organismo, pois são rapidamente convertidos em glicose, combustível para as células, músculos e cérebro. Estão presentes em pães, arroz, massas, batata e frutas."
+  },
+    {
+    "id": 7,
+    "pergunta": "Comer frutas à noite engorda?",
+    "opcoes": ["Sim", "Não, é mito", "Apenas algumas frutas"],
+    "respostaCorreta": "Não, é mito",
+    "curiosidade": "O ganho de peso não depende do horário em que a fruta é consumida, mas sim do total de calorias ingeridas ao longo do dia. As frutas são fontes de fibras, vitaminas e minerais, sendo benéficas em qualquer horário"
+  },
+    {
+    "id": 8,
+    "pergunta": "Qual destes alimentos é fonte de proteína vegetal?",
+    "opcoes": ["Lentilha", "Arroz", "Mandioca"],
+    "respostaCorreta": "Lentilha",
+    "curiosidade": "Leguminosas como lentilha, feijão, ervilha e grão-de-bico são ricas em proteína vegetal, importante para manutenção muscular e diversas funções do organismo, especialmente em dietas vegetarianas e veganas"
+  },
+    {
+    "id": 9,
+    "pergunta": "Qual é o consumo moderado de café recomendado para adultos saudáveis?",
+    "opcoes": ["Até 1 xícara por dia", "Até 3 xícaras por dia", "Até 10 xícaras por dia"],
+    "respostaCorreta": "Até 3 xícaras por dia",
+    "curiosidade": "Para adultos saudáveis, a ingestão segura de cafeína é de até 300 mg por dia, o que equivale aproximadamente a 3 xícaras de café filtrado. O excesso pode causar insônia, ansiedade, palpitações e aumento da pressão arterial."
+  },  
+    {
+    "id": 10,
+    "pergunta": "O que significa “alimentação balanceada”?",
+    "opcoes": ["Comer pouco", "Comer alimentos variados, em quantidades adequadas", "Comer apenas alimentos “light”"],
+    "respostaCorreta": "Comer alimentos variados, em quantidades adequadas",
+    "curiosidade": "Uma alimentação balanceada é aquela que inclui todos os grupos alimentares (carboidratos, proteínas, gorduras saudáveis, vitaminas, minerais e fibras) nas quantidades corretas, atendendo às necessidades do corpo para manter saúde, energia e bem-estar."
+  }
+]

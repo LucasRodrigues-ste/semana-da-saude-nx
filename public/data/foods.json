@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Alface",
+    "image": "/images/Alface.png",
+    "group": "hortaliças",
+    "isHealthy": true
+  },
+  {
+    "name": "Tomate",
+    "image": "/images/Tomate.png",
+    "group": " hortaliças",
+    "isHealthy": true
+  },
+  {
+    "name": "Cenoura",
+    "image": "/images/Cenoura.png",
+    "group": " hortaliças",
+    "isHealthy": true
+  },
+  {
+    "name": "Beterraba",
+    "image": "/images/Beterraba.png",
+    "group": " hortaliças",
+    "isHealthy": true
+  },
+  {
+    "name": "Bife",
+    "image": "/images/Bife.png",
+    "group": "proteínas",
+    "isHealthy": true
+  },
+  {
+    "name": "Peixe",
+    "image": "/images/Peixe.png",
+    "group": "proteínas",
+    "isHealthy": true
+  },
+  {
+    "name": "Frango",
+    "image": "/images/Frango.png",
+    "group": "proteínas",
+    "isHealthy": true
+  },
+  {
+    "name": "Ovo",
+    "image": "/images/Ovo.png",
+    "group": "proteínas",
+    "isHealthy": true
+  },
+  {
+    "name": "Soja",
+    "image": "/images/Soja.png",
+    "group": " proteínas",
+    "isHealthy": true
+  },
+  {
+    "name": "Linguiça",
+    "image": "/images/Linguiça.png",
+    "group": " proteínas",
+    "isHealthy": false
+  },
+  {
+    "name": "Arroz Integral",
+    "image": "/images/Arroz Integral.png",
+    "group": "carbs_bons",
+    "isHealthy": true
+  },
+  {
+    "name": "Batata Doce",
+    "image": "/images/Batata_Doce.png",
+    "group": "carbs_bons",
+    "isHealthy": true
+  },
+  {
+    "name": " Mandioca",
+    "image": "/images/Mandioca.png",
+    "group": "carbs_bons",
+    "isHealthy": true
+  },
+  {
+    "name": "Arroz Branco",
+    "image": "/images/Arroz.png",
+    "group": " carbs_ruins",
+    "isHealthy": false
+  },
+  {
+    "name": "Batata Frita",
+    "image": "/images/Batata Frita.png",
+    "group": "carbs_ruins",
+    "isHealthy": false
+  },
+  {
+    "name": "Pizza",
+    "image": "/images/Pizza.png",
+    "group": "carbs_ ruins",
+    "isHealthy": false
+  },
+  {
+    "name": "Macarrão",
+    "image": "/images/Macarrão.png",
+    "group": "carbs_ruins",
+    "isHealthy": false
+  },
+  {
+    "name": "Feijão",
+    "image": "/images/Feijão.png",
+    "group": " leguminosas",
+    "isHealthy": true
+  },
+  {
+    "name": "Grão de Bico",
+    "image": "/images/Grão de Bico.png",
+    "group": "carbs_bons",
+    "isHealthy": true
+  },
+  {
+    "name": "Ervilha Fresca",
+    "image": "/images/Ervilha.png",
+    "group": "carbs_bons",
+    "isHealthy": true
+  },
+  {
+    "name": "Frutas",
+    "image": "/images/Frutas.png",
+    "group": " frutas",
+    "isHealthy": true
+  },
+  {
+    "name": "Brigadeiro",
+    "image": "/images/brigadeiro.png",
+    "group": "doces",
+    "isHealthy": false
+  },
+  {
+    "name": "Chocolate Tablete",
+    "image": "/images/Chocolate.png",
+    "group": "doces",
+    "isHealthy": false
+  },
+  {
+    "name": "Gelatina",
+    "image": "/images/Gelatina.png",
+    "group": "doces",
+    "isHealthy": true
+  }
+]

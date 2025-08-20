@@ -1,92 +1,132 @@
-import "./style.css"
-import logo from '../../../../public/placeholder.jpg'
-import Hero from "@/components/Hero/Hero";
-import Footer from "@/components/Footer/Footer";
-import NavBar from "@/components/NavBar/NavBar";
+'use client';
+
+import { useEffect, useState } from 'react';
+import Hero from '@/components/Hero/Hero';
+import Footer from '@/components/Footer/Footer';
+import NavBar from '@/components/NavBar/NavBar';
+import { GameButon } from '@/components/interface';
+
+type Card = {
+  name: string;
+  image: string;
+  curiosidade: string;
+  id: number;
+  flipped: boolean;
+  matched: boolean;
+};
 
 export default function MemoryGame() {
-    return (
+  const [cards, setCards] = useState<Card[]>([]);
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [moves, setMoves] = useState(0);
+  const [matchedPairs, setMatchedPairs] = useState(0);
+  const [canFlip, setCanFlip] = useState(true);
+  const [curiosidadeAtual, setCuriosidadeAtual] = useState<string | null>(null);
 
-        <>
-            <NavBar />
+  useEffect(() => {
+    fetch('/data/pares.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const duplicated = [...data, ...data].map((card, index) => ({
+          ...card,
+          id: index,
+          flipped: false,
+          matched: false,
+        }));
+        const shuffled = duplicated.sort(() => Math.random() - 0.5);
+        setCards(shuffled);
+      });
+  }, []);
 
-            <Hero>
+  useEffect(() => {
+    if (curiosidadeAtual) {
+      const timer = setTimeout(() => setCuriosidadeAtual(null), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [curiosidadeAtual]);
 
-                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">Jogo da Memória</h2>
+  const handleFlip = (index: number) => {
+    if (!canFlip || cards[index].flipped || cards[index].matched) return;
 
-                <div className="rounded-4xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-black">
+    const newCards = [...cards];
+    newCards[index].flipped = true;
+    const newFlipped = [...flippedCards, index];
+    setCards(newCards);
+    setFlippedCards(newFlipped);
 
-                    <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25 flex justify-evenly space-x-2 text-white">
+    if (newFlipped.length === 2) {
+      setCanFlip(false);
+      setMoves((prev) => prev + 1);
 
-                        <span className="w-1/2 rounded-2xl bg-blue-900 drop-shadow-lg drop-shadow-black/50 p-3">Jogadas - 0</span>
+      const [first, second] = newFlipped;
+      if (newCards[first].name === newCards[second].name) {
+        newCards[first].matched = true;
+        newCards[second].matched = true;
+        setMatchedPairs((prev) => prev + 1);
+        setCuriosidadeAtual(newCards[first].curiosidade);
+        setFlippedCards([]);
+        setCanFlip(true);
+      } else {
+        setTimeout(() => {
+          newCards[first].flipped = false;
+          newCards[second].flipped = false;
+          setCards([...newCards]);
+          setFlippedCards([]);
+          setCanFlip(true);
+        }, 1000);
+      }
+    }
+  };
 
-                        <span className="w-1/2 rounded-2xl bg-blue-900 drop-shadow-lg drop-shadow-black/50 p-3">Pares - 0</span>
+  return (
+    <>
+      <NavBar />
+      <Hero>
+        <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+          Jogo da Memória
+        </h2>
 
-                    </div>
+        <div className="rounded-4xl bg-white/50 p-3 flex flex-col space-y-2 text-black">
+          <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg flex justify-evenly space-x-2 text-white">
+            <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Jogadas - {moves}</span>
+            <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Pares - {matchedPairs}</span>
+          </div>
 
-                    <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 justify-evenly drop-shadow-lg drop-shadow-black/25">
+          <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 drop-shadow-lg">
+            {cards.map((card, index) => (
+              <div
+              key={card.id}
+              className="rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer"
+              onClick={() => handleFlip(index)}
+              >
+                <img
+                  src={card.flipped || card.matched ? card.image : '/images/back.png'}
+                  alt={card.name}
+                  className="w-20 sm:w-32 hover:scale-110 transition-all"
+                />
+              </div>
+            ))}
+          </div>
 
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
+          <button className="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white">
+            <GameButon gamename="Voltar ao menu" url="/Games/GameSelector">Voltar ao Menu</GameButon>
+          </button>
 
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
+          {curiosidadeAtual && (
+            <div className="rounded-4xl bg-yellow-100 text-center text-black p-3 mt-4 font-medium">
+              🧠 <strong>Curiosidade:</strong> {curiosidadeAtual}
+            </div>
+          )}
 
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
+          {matchedPairs === cards.length / 2 && (
+            <div className="rounded-4xl bg-green-200 text-center text-black p-3 mt-4 font-bold">
+              🎉 Parabéns! Você completou o jogo em {moves} jogadas!
+            </div>
+          )}
+        </div>
 
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                        <div className="rounded-2xl bg-blue-900 p-3 text-center text-white">
-                            <img src={logo.src} alt="Logo Stellantis" className="w-20 sm:w-50 hover:scale-110 transition-all" />
-                        </div>
-
-                    </div>
-
-                    <button className="rounded-2xl bg-red-500 drop-shadow-lg drop-shadow-black/50 p-3 text-white">Voltar ao Menu</button>
-
-                </div>
-
-                <div className="rounded-4xl bg-white/75 text-center text-black p-3">
-                    Campo destinado para as curiosidades dos alimentos
-                </div>
-
-            </Hero>
-
-            <Footer />
-        </>
-    );
+      </Hero>
+      <Footer />
+    </>
+  );
 }

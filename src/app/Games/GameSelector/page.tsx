@@ -4,22 +4,20 @@ import "./style.css"
 import { GameButon } from "@/components/interface";
 import NavBar from "@/components/NavBar/NavBar";
 
-export default function HomePage() {
+export default function GameSelector() {
 
     return (
         <>
             <NavBar />
 
             <Hero>
-
                 
-                    <h1 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl ">Jogos dos Alimentos Saudáveis</h1>
+                <h1 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl p-3">Jogos dos Alimentos Saudáveis</h1>
                 
-
-                <div className="rounded-4xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-white">
+                <div className="rounded-2xl bg-white/50 p-3 justify-evenly flex flex-col space-y-2 text-white">
 
                     <button className="game-btn">
-                        <GameButon gamename="Quiz de Alimentos" url="/Games/QuizGame"></GameButon>
+                        <GameButon gamename="Sabores e Saberes" url="/Games/QuizGame"></GameButon>
                     </button>
 
                     <button className="game-btn">
