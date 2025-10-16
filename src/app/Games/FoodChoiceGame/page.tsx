@@ -117,7 +117,7 @@ export default function FoodChoiceGame() {
                     Monte seu Prato
                 </h2>
 
-                <div className="rounded-4xl bg-white/50 p-3 flex flex-col space-y-2 text-black">
+                <div className="rounded-4xl p-3 flex flex-col space-y-2 text-black">
                     {showResults && (
                         <>
                             <div className={`rounded-2xl bg-white/75 p-2 flex justify-evenly text-balck ${getFeedbackColor(score)}`}>

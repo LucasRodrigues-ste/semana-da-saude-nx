@@ -28,7 +28,7 @@ body {
 @layer{
 
   .hero{
-  @apply bg-gradient-to-b from-blue-300 to-blue-200
+  @apply
   min-h-screen 
   p-4
   space-y-4;

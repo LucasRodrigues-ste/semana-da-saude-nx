@@ -82,17 +82,17 @@ export default function MemoryGame() {
     <>
       <NavBar />
       <Hero>
-        <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+        <h2 className="rounded-4xl bg-white/90 text-center text-black text-3xl font-extrabold drop-shadow-xl p-2">
           Jogo da Memória
         </h2>
 
-        <div className="rounded-4xl bg-white/50 p-3 flex flex-col space-y-2 text-black">
+        <div className="rounded-4xl bg-white/90 p-3 flex flex-col space-y-2 text-black">
           <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg flex justify-evenly space-x-2 text-white">
             <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Jogadas - {moves}</span>
             <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Pares - {matchedPairs}</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 drop-shadow-lg">
+          <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/50 p-2 drop-shadow-lg">
             {cards.map((card, index) => (
               <div
               key={card.id}

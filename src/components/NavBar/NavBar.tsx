@@ -10,7 +10,7 @@ export default function NavBar() {
 
     return (
 
-        <header className="bg-blue-900 drop-shadow-sm drop-shadow-black relative flex justify-between items-center p-3 z-20">
+        <header className="bg-[#575b68] drop-shadow-sm drop-shadow-black/30 relative flex justify-between items-center p-3 z-20">
 
             <a href="/">
                 <img src={logo.src} alt="Logo Stellantis" className="w-10 sm:w-12 hover:scale-110 transition-all" />

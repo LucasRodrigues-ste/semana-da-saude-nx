@@ -32,7 +32,6 @@
 .memory-card img {
     width: 180px;
     height: 180px;
-    object-fit: contain;
     border-radius: 12px;
     opacity: 0;
     transition: opacity 0.3s;

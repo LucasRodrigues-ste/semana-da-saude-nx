@@ -1,32 +1,32 @@
 [
   {
     "name": "Filé-de-Frango ",
-    "image": "/images/placeholder.jpg",
+    "image": "/images/MemoryGame/15929-File-Frango-1920x1080px.png",
     "curiosidade": " Fonte de proteína magra, essencial para construção e manutenção dos músculos, além de contribuir para a saciedade e o controle de peso."
   },
   {
     "name": "Leite Derivados",
-    "image": "/images/Leite-e-Derivados.png",
+    "image": "/images/MemoryGame/15929-Leite-Derivados-1920x1080px.png",
     "curiosidade": " Ricos em cálcio, vitamina D e proteínas, fortalecem ossos e dentes, além de ajudarem na contração muscular e na saúde nervosa."
   },
   {
     "name": "Arroz-Integral",
-    "image": "/images/Arroz Integral.png",
+    "image": "/images/MemoryGame/15929-Arroz-Integral-1920x1080px.png",
     "curiosidade": " Contém mais fibras, vitaminas e minerais que o arroz branco, ajudando a regular o intestino, controlar a glicemia e prolongar a saciedade."
   },
   {
     "name": "Couve",
-    "image": "/images/Couve.png",
+    "image": "/images/MemoryGame/15929-Couve-1920x1080px.png",
     "curiosidade": ": Fonte de cálcio vegetal, ferro e antioxidantes, contribui para a saúde óssea, fortalece o sistema imunológico e ajuda na prevenção de anemia."
   },
   {
     "name": "Beterraba",
-    "image": "/images/Beterraba.png",
+    "image": "/images/MemoryGame/15929-Beterraba-1920x1080px.png",
     "curiosidade": " Rica em ferro, folato e nitratos naturais, auxilia na prevenção da anemia, melhora a circulação sanguínea e dá mais energia para atividades físicas."
   },
   {
     "name": "Melancia",
-    "image": "/images/Melancia.png",
+    "image": "/images/MemoryGame/15929-Melancia-1920x1080px.png",
     "curiosidade": "Composta por mais de 90% de água, hidrata o corpo, fornece licopeno antioxidante e ajuda na saúde do coração e da pele."
   }
 ]
