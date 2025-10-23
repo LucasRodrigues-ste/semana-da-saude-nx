@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
 import "./style.css"
-import { GameButon } from "@/components/interface";
+import { GameButton } from "@/components/interface";
 import NavBar from "@/components/NavBar/NavBar";
 
 export default function GameSelector() {
@@ -22,7 +22,7 @@ export default function GameSelector() {
                         </p>
 
                         <button className="game-btn">
-                            <GameButon gamename="Sabores e Saberes" url="/Games/QuizGame"></GameButon>
+                            <GameButton gamename="Sabores e Saberes" url="/Games/QuizGame"/>
                         </button>
                     </div>
 
@@ -33,7 +33,7 @@ export default function GameSelector() {
                         </p>
 
                         <button className="game-btn">
-                            <GameButon gamename="Jogo da Memoria" url="/Games/MemoryGame"></GameButon>
+                            <GameButton gamename="Jogo da Memoria" url="/Games/MemoryGame"/>
                         </button>
                     </div>
 
@@ -44,7 +44,7 @@ export default function GameSelector() {
                         </p>
 
                         <button className="game-btn">
-                            <GameButon gamename="Monte seu Prato" url="/Games/FoodChoiceGame"></GameButon>
+                            <GameButton gamename="Monte seu Prato" url="/Games/FoodChoiceGame"/>
                         </button>
                     </div>
 
