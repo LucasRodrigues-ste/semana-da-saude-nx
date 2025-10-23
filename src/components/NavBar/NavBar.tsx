@@ -3,6 +3,8 @@
 import { useState } from "react";
 import logo from "../../../public/images/15929 Mascote.png"
 import { NavItem } from "../NavItem/NavItem";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function NavBar() {
 
@@ -12,9 +14,9 @@ export default function NavBar() {
 
         <header className="bg-[#575b68] drop-shadow-sm drop-shadow-black/30 relative flex justify-between items-center p-3 z-20">
 
-            <a href="/">
-                <img src={logo.src} alt="Logo Stellantis" className="w-10 sm:w-12 hover:scale-110 transition-all" />
-            </a>
+            <Link href="/">
+                <Image src={logo.src} alt="Logo Stellantis"  width={200} height={200} quality={100} className="w-10 sm:w-12 hover:scale-110 transition-all" />
+            </Link>
 
             <ul className="hidden xl:flex items-center gap-12 font-semibold text-base">
                 <li className="p-3 hover:bg-sky-300 rounded-2xl"><NavItem menuname='Campanha' url='/'></NavItem></li>
@@ -44,9 +46,6 @@ export default function NavBar() {
                     </li>
                     <li className="list-none w-full text-center p-4 hover:bg-sky-300">
                         <NavItem menuname='Cartilha' url='/Booklet'></NavItem>
-                    </li>
-                    <li className="list-none w-full text-center p-4 hover:bg-sky-300">
-                        <NavItem menuname='Sobre' url='../About'></NavItem>
                     </li>
                 </ul>
 

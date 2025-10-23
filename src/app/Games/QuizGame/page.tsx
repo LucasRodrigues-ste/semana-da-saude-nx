@@ -2,13 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Hero from "@/components/Hero/Hero";
-import { GameButon } from "@/components/interface";
+import { GameButton } from "@/components/interface";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
 import perguntasData from "../../../../public/data/perguntas.json"; 
 
+interface Pergunta {
+  pergunta: string;
+  opcoes: string[];
+  respostaCorreta: string;
+  curiosidade: string;
+}
+
 export default function QuizGame() {
-  const [perguntas, setPerguntas] = useState<any[]>([]);
+  const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [respostaSelecionada, setRespostaSelecionada] = useState<string>('');
   const [mostrarCuriosidade, setMostrarCuriosidade] = useState(false);
@@ -106,7 +113,7 @@ export default function QuizGame() {
             </p>
 
             <button className="w-full rounded-2xl bg-red-500 drop-shadow-lg drop-shadow-black/50 p-3 text-white">
-              <GameButon gamename="Voltar ao menu" url="/Games/GameSelector">Voltar ao Menu</GameButon>
+              <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
             </button>
           </div>
         )}
