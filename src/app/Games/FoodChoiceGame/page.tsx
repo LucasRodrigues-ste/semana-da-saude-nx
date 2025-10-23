@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Hero from '@/components/Hero/Hero';
 import Footer from '@/components/Footer/Footer';
 import NavBar from '@/components/NavBar/NavBar';
-import { GameButon } from '@/components/interface';
+import { GameButton } from '@/components/interface';
 import Image from 'next/image';
 
 type Food = {
@@ -171,7 +171,7 @@ const evaluateChoices = () => {
 
                     <div className="flex justify-evenly p-0.5 space-x-2 text-white">
                         <button className="w-1/2 rounded-2xl bg-red-500 p-3">
-                            <GameButon gamename="Voltar ao menu" url="/Games/GameSelector">Voltar ao Menu</GameButon>
+                            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
                         </button>
                         <button
                             className={`w-1/2 rounded-2xl p-3 ${selectedFoods.length === maxSelections ? 'bg-blue-700' : 'bg-gray-400 cursor-not-allowed'

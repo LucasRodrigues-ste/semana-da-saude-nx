@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Hero from '@/components/Hero/Hero';
 import Footer from '@/components/Footer/Footer';
 import NavBar from '@/components/NavBar/NavBar';
-import { GameButon } from '@/components/interface';
+import { GameButton } from '@/components/interface';
 import Image from 'next/image';
 
 type Card = {
@@ -114,7 +114,7 @@ export default function MemoryGame() {
           </div>
 
           <button className="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white">
-            <GameButon gamename="Voltar ao menu" url="/Games/GameSelector">Voltar ao Menu</GameButon>
+            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
           </button>
 
           {curiosidadeAtual && (
