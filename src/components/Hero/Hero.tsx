@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 interface HeroProps {
-    children: any
+    children: ReactNode
 }
 
 export default function Hero(props: HeroProps) {

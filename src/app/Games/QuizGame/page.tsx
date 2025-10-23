@@ -7,8 +7,15 @@ import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
 import perguntasData from "../../../../public/data/perguntas.json"; 
 
+interface Pergunta {
+  pergunta: string;
+  opcoes: string[];
+  respostaCorreta: string;
+  curiosidade: string;
+}
+
 export default function QuizGame() {
-  const [perguntas, setPerguntas] = useState<any[]>([]);
+  const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [respostaSelecionada, setRespostaSelecionada] = useState<string>('');
   const [mostrarCuriosidade, setMostrarCuriosidade] = useState(false);
