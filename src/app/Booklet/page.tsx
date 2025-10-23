@@ -4,7 +4,6 @@ import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
 import dynamic from 'next/dynamic';
-import Link from "next/link";
 
 const PDFViewer = dynamic(() => 
 import('@/components/PDFViewer/PDFViewer'), { ssr: false });
