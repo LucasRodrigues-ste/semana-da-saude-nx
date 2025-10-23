@@ -104,8 +104,8 @@ export default function MemoryGame() {
                   src={card.flipped || card.matched ? card.image : '/images/15929 Mascote.png'}
                   alt={card.name}
                   quality={100}
-                  width={1000}
-                  height={1000}
+                  width={100}
+                  height={100}
                   
                   className="w-20 sm:w-32 hover:scale-110 transition-all"
                 />

@@ -5,6 +5,7 @@ import Hero from '@/components/Hero/Hero';
 import Footer from '@/components/Footer/Footer';
 import NavBar from '@/components/NavBar/NavBar';
 import { GameButon } from '@/components/interface';
+import Image from 'next/image';
 
 type Food = {
     name: string;
@@ -153,9 +154,12 @@ const evaluateChoices = () => {
                                         className={`rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
                                         onClick={() => toggleFood(food)}
                                     >
-                                        <img
+                                        <Image
                                             src={food.image}
                                             alt={food.name}
+                                            width={2000}
+                                            height={2000}
+                                            quality={100}
                                             className="w-20 sm:w-32 hover:scale-110 transition-all"
                                         />
                                         <p>{food.name}</p>
