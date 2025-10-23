@@ -2,6 +2,7 @@ import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
 import NavBar from "@/components/NavBar/NavBar";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HealthCampaing() {
   return (
@@ -9,12 +10,15 @@ export default function HealthCampaing() {
       <NavBar />
       <Hero>
 
-        <h1 className="font-extrabold text-5xl text-black underline text-center">Nutriente&
-          Conciente
-        </h1>
+        <Image src={'/images/15929 Chamada Nutriente Consciente.png'}
+        width={800}
+        height={800}
+        quality={100}
+        alt="Nutriente & Consciente, Alimentar bem, educar também"
+        >
+        </Image>
 
         <div className=" p-3  text-black transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl space-y-2 text-center indent-2 font-bold">
-          <h4 className='text-2xl p-1 font-semibold text-center'>Alimente-se Bem, Viva Melhor</h4>
           <p>
             Alimentar bem, educar também
             Esta é a nossa área interativa! Aqui você poderá saber mais sobre o que é uma alimentação equilibrada e como integrar hábitos saudáveis na sua vida – tudo de forma leve e divertida – com muita informação e ações especiais como nosso concurso de receitas e jogos.
@@ -46,7 +50,7 @@ export default function HealthCampaing() {
           </Link>
 
 
-          <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1">
+          <Link href="https://forms.office.com/e/U2eGiMFjYz">
             <div className=" p-3 rounded-3xl bg-white/60 drop-shadow-xs drop-shadow-black/50 text-black transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl space-y-4 text-center indent-2">
               <h4 className='text-3xl p-1 font-semibold text-center'>Sabores da Nossa História</h4>
               <p>

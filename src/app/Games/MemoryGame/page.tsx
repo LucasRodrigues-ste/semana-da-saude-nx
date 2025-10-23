@@ -5,6 +5,7 @@ import Hero from '@/components/Hero/Hero';
 import Footer from '@/components/Footer/Footer';
 import NavBar from '@/components/NavBar/NavBar';
 import { GameButon } from '@/components/interface';
+import Image from 'next/image';
 
 type Card = {
   name: string;
@@ -99,9 +100,13 @@ export default function MemoryGame() {
               className="rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer"
               onClick={() => handleFlip(index)}
               >
-                <img
-                  src={card.flipped || card.matched ? card.image : '/images/back.png'}
+                <Image
+                  src={card.flipped || card.matched ? card.image : '/images/15929 Mascote.png'}
                   alt={card.name}
+                  quality={100}
+                  width={1000}
+                  height={1000}
+                  
                   className="w-20 sm:w-32 hover:scale-110 transition-all"
                 />
               </div>

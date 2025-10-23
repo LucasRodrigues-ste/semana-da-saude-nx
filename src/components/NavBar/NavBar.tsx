@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import logo from "../../../public/images/ODF.png"
+import logo from "../../../public/images/15929 Mascote.png"
 import { NavItem } from "../NavItem/NavItem";
 
 export default function NavBar() {

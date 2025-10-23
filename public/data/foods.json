@@ -140,7 +140,7 @@
   {
     "name": "Gelatina",
     "image": "/images/FoodChoiceGame/15929-Gelatina-1920x1080px.png",
-    "group": "doces",
+    "group": "",
     "isHealthy": true
   }
 ]

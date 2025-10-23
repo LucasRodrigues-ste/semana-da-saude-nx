@@ -23,12 +23,12 @@ export default function FoodChoiceGame() {
     const maxSelections = 10;
 
     const foodGroups = {
-        hortaliças: { ideal: 4, pointsPerItem: 30 },
-        proteínas: { ideal: 2, pointsPerItem: 15 },
-        carbs_bons: { ideal: 2, pointsPerItem: 20 },
-        leguminosas: { ideal: 1, pointsPerItem: 20 },
-        frutas: { ideal: 1, pointsPerItem: 30 },
-        carbs_ruins: { ideal: 0, pointsPerItem: 10 },
+        hortaliças: { ideal: 3, pointsPerItem: 60 },
+        proteínas: { ideal: 2, pointsPerItem: 50 },
+        carbs_bons: { ideal: 2, pointsPerItem: 49 },
+        leguminosas: { ideal: 1, pointsPerItem: 50 },
+        frutas: { ideal: 1, pointsPerItem: 50 },
+        carbs_ruins: { ideal: 0, pointsPerItem: 30 },
         doces: { ideal: 0, pointsPerItem: 0 }
     };
 
@@ -50,48 +50,54 @@ export default function FoodChoiceGame() {
         }
     };
 
-    const evaluateChoices = () => {
-        const groupCount: Record<string, number> = {};
-        Object.keys(foodGroups).forEach(group => groupCount[group] = 0);
 
-        selectedFoods.forEach(food => {
-            if (groupCount[food.group] !== undefined) {
-                groupCount[food.group]++;
-            }
-        });
 
-        let totalScore = 0;
-        let maxScore = 0;
+const evaluateChoices = () => {
+    const groupCount: Record<string, number> = {};
+    Object.keys(foodGroups).forEach(group => groupCount[group] = 0);
 
-        Object.entries(foodGroups).forEach(([group, config]) => {
-            const selected = groupCount[group] || 0;
-            const ideal = config.ideal;
-            const pointsPerItem = config.pointsPerItem;
+    selectedFoods.forEach(food => {
+        if (groupCount[food.group] !== undefined) {
+            groupCount[food.group]++;
+        }
+    });
 
-            const groupScore = Math.min(selected, ideal) * pointsPerItem;
-            totalScore += groupScore;
-            maxScore += ideal * pointsPerItem;
-        });
+    let totalScore = 0;
+    let maxScore = 0;
 
-        // Penalidades
-        const bombaCount = selectedFoods.filter(f => bombaGroups.includes(f.group)).length;
-        const missingGroups = essentialGroups.filter(group => groupCount[group] === 0).length;
+    Object.entries(foodGroups).forEach(([group, config]) => {
+        const selected = groupCount[group] || 0;
+        const ideal = config.ideal;
+        const pointsPerItem = config.pointsPerItem;
 
-        totalScore -= bombaCount * 20;
-        totalScore -= missingGroups * 15;
+        const groupScore = Math.min(selected, ideal) * pointsPerItem;
+        totalScore += groupScore;
+        maxScore += ideal * pointsPerItem;
+    });
 
-        // Limite de pontuação
-        const finalScore = Math.min(totalScore, maxScore);
-        const percentage = Math.min(Math.round((finalScore / maxScore) * 100), 100);
+    const bombaCount = selectedFoods.filter(f => bombaGroups.includes(f.group)).length;
+    const missingGroups = essentialGroups.filter(group => groupCount[group] === 0).length;
 
-        setScore(percentage);
-        setFeedback(getFeedbackMessage(percentage, bombaCount));
-        setShowResults(true);
-    };
+    totalScore -= bombaCount * 20;
+    totalScore -= missingGroups * 15;
+
+    const finalScore = Math.max(Math.min(totalScore, maxScore), 0);
+    const percentage = Math.round((finalScore / maxScore) * 210);
+
+    setScore(percentage);
+    setFeedback(getFeedbackMessage(percentage, bombaCount));
+    setShowResults(true);
+};
 
     const getFeedbackMessage = (percentage: number, bombaCount: number) => {
         if (percentage <= 50) return "Cuidado! Seu prato não está equilibrado.";
-        if (percentage <= 74) return "Você está no caminho certo! Pode melhorar.";
+
+        if (percentage <= 74) {
+            return bombaCount > 0
+                ? "Você está no caminho certo; Tenha atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
+                : "Você está no caminho certo, Mas pode melhorar.";
+        }
+
         if (percentage <= 99) {
             return bombaCount > 0
                 ? "Parabéns! Seu prato está saudável. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
