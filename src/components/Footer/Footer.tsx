@@ -4,7 +4,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#575b68] p-2 text-sm flex flex-row">
-            <p className="text-white" >Desenvolvido por Lucas Rodrigues Ramos</p>
+            <p className="text-white" >Desenvolvido por Lucas Rodrigues Ramos - {currentYear}</p>
         </footer>
     );
 }
