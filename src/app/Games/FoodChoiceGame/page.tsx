@@ -91,20 +91,17 @@ const evaluateChoices = () => {
 };
 
     const getFeedbackMessage = (percentage: number, bombaCount: number) => {
-        if (percentage <= 50) return "Cuidado! Seu prato não está equilibrado.";
+        if (percentage <= 50) return "Cuidado com suas escolhas! Elas não representam uma refeição equilibrada e saudável. Procure incluir em seu prato alimentos de grupos variados e integrais. Evite frituras, alimentos ricos em sal e açúcar.";
 
-        if (percentage <= 74) {
-            return bombaCount > 0
-                ? "Você está no caminho certo; Tenha atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
-                : "Você está no caminho certo, Mas pode melhorar.";
-        }
+        if (percentage <= 74) 
+            return "Você está no caminho certo! Fez boas escolhas, mas pode melhorar a variedade entre os grupos e evitar frituras, alimentos ricos em sal e açúcar."
 
         if (percentage <= 99) {
             return bombaCount > 0
-                ? "Parabéns! Seu prato está saudável. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
-                : "Parabéns! Seu prato está saudável.";
+                ? "Parabéns! Suas opções representam escolhas saudáveis que contribuem para melhor qualidade de vida e saúde. Continue assim. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
+                : "Parabéns! Suas opções representam escolhas saudáveis que contribuem para melhor qualidade de vida e saúde. Continue assim!";
         }
-        return "Excelente! Seu prato está perfeito!";
+        return "Parabéns! Suas escolhas representam um prato equilibrado e saudável. Seja exemplo para sua família e amigos. Continue assim!";
     };
 
 
