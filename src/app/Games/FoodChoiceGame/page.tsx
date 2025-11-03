@@ -117,7 +117,7 @@ const evaluateChoices = () => {
         <>
             <NavBar />
             <Hero>
-                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+                <h2 className="rounded-4xl bg-white/70 text-center text-black text-3xl font-extrabold drop-shadow-xl">
                     Monte seu Prato
                 </h2>
 
@@ -136,7 +136,7 @@ const evaluateChoices = () => {
                     )}
 
                     {!showResults && (
-                        <div className="rounded-2xl bg-white/85 p-2 text-center sticky top-0 z-10">
+                        <div className="rounded-2xl bg-white/95 p-2 text-center font-bold sticky top-2 z-10">
                             {selectedFoods.length}/{maxSelections} alimentos selecionados
                         </div>
                     )}
@@ -148,7 +148,7 @@ const evaluateChoices = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className={`rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
+                                        className={`w-25 h-25 rounded-2xl bg-blue-900 p-3 text-white text-center flex items-center flex-col justify-center cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
                                         onClick={() => toggleFood(food)}
                                     >
                                         <Image
