@@ -21,9 +21,7 @@ export default function GameSelector() {
                             Hora de testar seus conhecimentos! Neste quiz, você responderá 10 perguntas sobre dieta, nutrientes e alguns mitos sobre alimentação.
                         </p>
 
-                        <button className="game-btn">
-                            <GameButton gamename="Sabores e Saberes" url="/Games/QuizGame"/>
-                        </button>
+                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg" gamename="Sabores e Saberes" url="/Games/QuizGame"/>
                     </div>
 
                     <div className="rounded-2xl bg-white/60 p-3 flex flex-col space-y-2 text-black text-center">
@@ -32,9 +30,7 @@ export default function GameSelector() {
                             Um game bom para o corpo e a mente. Combine as cartas corretamente, receba informações sobre os alimentos e descubra como eles ajudam a sua saúde.
                         </p>
 
-                        <button className="game-btn">
-                            <GameButton gamename="Jogo da Memoria" url="/Games/MemoryGame"/>
-                        </button>
+                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg " gamename="Jogo da Memoria" url="/Games/MemoryGame"/>
                     </div>
 
                     <div className="rounded-2xl bg-white/60 p-3 flex flex-col space-y-2 text-black text-center">
@@ -43,9 +39,7 @@ export default function GameSelector() {
                            Neste game, você aprende como montar uma refeição equilibrada, com carboidratos, proteínas, fibras e vitaminas na medida certa. E aí, qual nota seu prato merece?
                         </p>
 
-                        <button className="game-btn">
-                            <GameButton gamename="Monte seu Prato" url="/Games/FoodChoiceGame"/>
-                        </button>
+                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg" gamename="Monte seu Prato" url="/Games/FoodChoiceGame"/>
                     </div>
 
                 </div>

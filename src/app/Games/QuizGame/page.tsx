@@ -118,6 +118,8 @@ export default function QuizGame() {
           </div>
         )}
 
+        <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector" />
+
       </Hero>
       <Footer />
     </>

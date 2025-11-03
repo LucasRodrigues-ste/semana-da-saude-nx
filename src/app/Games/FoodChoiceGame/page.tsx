@@ -169,10 +169,8 @@ const evaluateChoices = () => {
                         </div>
                     )}
 
-                    <div className="flex justify-evenly p-0.5 space-x-2 text-white">
-                        <button className="w-1/2 rounded-2xl bg-red-500 p-3">
-                            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
-                        </button>
+                    <div className="flex justify-evenly p-0.5 space-x-2 text-white text-center">
+                            <GameButton class="w-1/2 rounded-2xl bg-red-500 p-3 " gamename="Voltar ao menu" url="/Games/GameSelector"/>
                         <button
                             className={`w-1/2 rounded-2xl p-3 ${selectedFoods.length === maxSelections ? 'bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
                                 }`}

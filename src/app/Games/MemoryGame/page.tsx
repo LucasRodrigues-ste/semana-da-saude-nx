@@ -113,15 +113,7 @@ export default function MemoryGame() {
             ))}
           </div>
 
-          <button className="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white">
-            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
-          </button>
-
-          {curiosidadeAtual && (
-            <div className="rounded-4xl bg-yellow-100 text-center text-black p-3 mt-4 font-medium">
-              🧠 <strong>Curiosidade:</strong> {curiosidadeAtual}
-            </div>
-          )}
+            <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector"/>
 
           {matchedPairs === cards.length / 2 && (
             <div className="rounded-4xl bg-green-200 text-center text-black p-3 mt-4 font-bold">

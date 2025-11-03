@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export function GameButton(props: {gamename: string, url: string}) {
+export function GameButton(props: {gamename: string, url: string, class: string}) {
     return (
-        <Link className='p-2' href={props.url}>
+        <Link className={props.class} href={props.url}>
             {props.gamename}
         </Link>
     )
