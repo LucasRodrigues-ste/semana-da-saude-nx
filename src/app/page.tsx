@@ -18,9 +18,8 @@ export default function HealthCampaing() {
         >
         </Image>
 
-        <div className=" p-3  text-black transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl space-y-2 text-center indent-2 font-bold">
+        <div className=" p-3  text-black space-y-2 text-justify indent-2 font-bold">
           <p>
-            Alimentar bem, educar também
             Esta é a nossa área interativa! Aqui você poderá saber mais sobre o que é uma alimentação equilibrada e como integrar hábitos saudáveis na sua vida – tudo de forma leve e divertida – com muita informação e ações especiais como nosso concurso de receitas e jogos.
           </p>
           <p>
@@ -32,7 +31,7 @@ export default function HealthCampaing() {
 
         <div className="grid grid-cols-2xs justify-evenly gap-2 text-black drop">
           <Link href="/Games/GameSelector">
-            <div className="rounded-2xl bg-white/60 drop-shadow-xs drop-shadow-black/50 flex flex-col p-3 space-y-3 transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl text-center indent-2">
+            <div className="rounded-2xl bg-white/70 drop-shadow-xs drop-shadow-black/50 flex flex-col p-3 space-y-3 text-center indent-2">
               <h4 className='text-3xl p-1 font-semibold text-center'>Jogos</h4>
               <p>
                 Participe de nossos jogos e veja como voce pode transformar seus habitos.
@@ -41,7 +40,7 @@ export default function HealthCampaing() {
           </Link>
 
           <Link href="/Booklet">
-            <div className="rounded-2xl bg-white/60 drop-shadow-xs drop-shadow-black/50 flex flex-col p-3 space-y-3 transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl text-center indent-2">
+            <div className="rounded-2xl bg-white/70 drop-shadow-xs drop-shadow-black/50 flex flex-col p-3 space-y-3 text-center indent-2">
               <h4 className='text-3xl p-1 font-semibold text-center'>Cartilha</h4>
               <p>
                 Acesse nossa cartilha e aprenda como tomar decisões concientes para ter uma vida mais saudavel.
@@ -51,10 +50,10 @@ export default function HealthCampaing() {
 
 
           <Link href="https://forms.office.com/e/U2eGiMFjYz">
-            <div className=" p-3 rounded-3xl bg-white/60 drop-shadow-xs drop-shadow-black/50 text-black transition-transform duration-300 hover:rotate-1 hover:scale-105 hover:shadow-2xl space-y-4 text-center indent-2">
+            <div className=" p-3 rounded-3xl bg-white/70 drop-shadow-xs drop-shadow-black/50 text-black space-y-4 text-center indent-2">
               <h4 className='text-3xl p-1 font-semibold text-center'>Sabores da Nossa História</h4>
               <p>
-                Desperte o chef que há em você! Compartilhe com a gente aquele prato especial da sua família. Ao final da campanha, ele poderá a estrela dos restaurantes em todas as nossas plantas, além de compor um e-book com várias receitas de colegas em todo o Brasil.
+                Desperte o chef que há em você! Compartilhe com a gente aquele prato especial da sua família. Ao final da campanha, ele poderá ser a estrela dos restaurantes em todas as nossas plantas, além de compor um e-book com várias receitas de colegas em todo o Brasil.
               </p>
             </div>
           </Link>
