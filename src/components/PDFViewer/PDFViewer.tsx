@@ -38,7 +38,7 @@ export default function PDFViewer() {
 
                 {numPages &&
                     Array.from({ length: numPages }, (_, index) => (
-                        <div key={index} className="w-full flex justify-center mb-6">
+                        <div key={index} className="w-full flex justify-center mb-2">
                             <Page
                                 pageNumber={index + 1}
                                 width={width}

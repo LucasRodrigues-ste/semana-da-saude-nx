@@ -87,17 +87,22 @@ export default function MemoryGame() {
           Jogo da Memória
         </h2>
 
-        <div className="rounded-4xl bg-white/90 p-3 flex flex-col space-y-2 text-black">
-          <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg flex justify-evenly space-x-2 text-white">
+          <div className="rounded-3xl bg-white/75 p-3 text-center drop-shadow-lg flex justify-evenly space-x-2 text-white">
             <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Jogadas - {moves}</span>
             <span className="w-1/2 rounded-2xl bg-blue-900 p-3">Pares - {matchedPairs}</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/50 p-2 drop-shadow-lg">
+          {curiosidadeAtual && (
+            <div className="rounded-4xl bg-yellow-100 text-center text-black p-3 mt-4 font-medium">
+              🧠 <strong>Curiosidade:</strong> {curiosidadeAtual}
+            </div>
+          )}
+
+          <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/75 p-2 drop-shadow-lg">
             {cards.map((card, index) => (
               <div
               key={card.id}
-              className="rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer"
+              className="rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer items-center flex justify-center"
               onClick={() => handleFlip(index)}
               >
                 <Image
@@ -107,28 +112,19 @@ export default function MemoryGame() {
                   width={100}
                   height={100}
                   
-                  className="w-20 sm:w-32 hover:scale-110 transition-all"
+                  className="w-20 sm:w-32 hover:scale-110 transition-all items-center flex justify-center"
                 />
               </div>
             ))}
           </div>
 
-          <button className="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white">
-            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
-          </button>
-
-          {curiosidadeAtual && (
-            <div className="rounded-4xl bg-yellow-100 text-center text-black p-3 mt-4 font-medium">
-              🧠 <strong>Curiosidade:</strong> {curiosidadeAtual}
-            </div>
-          )}
+            <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector"/>
 
           {matchedPairs === cards.length / 2 && (
             <div className="rounded-4xl bg-green-200 text-center text-black p-3 mt-4 font-bold">
               🎉 Parabéns! Você completou o jogo em {moves} jogadas!
             </div>
           )}
-        </div>
 
       </Hero>
       <Footer />

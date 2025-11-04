@@ -91,20 +91,17 @@ const evaluateChoices = () => {
 };
 
     const getFeedbackMessage = (percentage: number, bombaCount: number) => {
-        if (percentage <= 50) return "Cuidado! Seu prato não está equilibrado.";
+        if (percentage <= 50) return "Cuidado com suas escolhas! Elas não representam uma refeição equilibrada e saudável. Procure incluir em seu prato alimentos de grupos variados e integrais. Evite frituras, alimentos ricos em sal e açúcar.";
 
-        if (percentage <= 74) {
-            return bombaCount > 0
-                ? "Você está no caminho certo; Tenha atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
-                : "Você está no caminho certo, Mas pode melhorar.";
-        }
+        if (percentage <= 74) 
+            return "Você está no caminho certo! Fez boas escolhas, mas pode melhorar a variedade entre os grupos e evitar frituras, alimentos ricos em sal e açúcar."
 
         if (percentage <= 99) {
             return bombaCount > 0
-                ? "Parabéns! Seu prato está saudável. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
-                : "Parabéns! Seu prato está saudável.";
+                ? "Parabéns! Suas opções representam escolhas saudáveis que contribuem para melhor qualidade de vida e saúde. Continue assim. Atenção às frituras e doces, o consumo destes alimentos deve ser esporádico."
+                : "Parabéns! Suas opções representam escolhas saudáveis que contribuem para melhor qualidade de vida e saúde. Continue assim!";
         }
-        return "Excelente! Seu prato está perfeito!";
+        return "Parabéns! Suas escolhas representam um prato equilibrado e saudável. Seja exemplo para sua família e amigos. Continue assim!";
     };
 
 
@@ -120,7 +117,7 @@ const evaluateChoices = () => {
         <>
             <NavBar />
             <Hero>
-                <h2 className="rounded-4xl bg-white/50 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+                <h2 className="rounded-4xl bg-white/70 text-center text-black text-3xl font-extrabold drop-shadow-xl">
                     Monte seu Prato
                 </h2>
 
@@ -139,7 +136,7 @@ const evaluateChoices = () => {
                     )}
 
                     {!showResults && (
-                        <div className="rounded-2xl bg-white/85 p-2 text-center sticky top-0 z-10">
+                        <div className="rounded-2xl bg-white/95 p-2 text-center font-bold sticky top-2 z-10">
                             {selectedFoods.length}/{maxSelections} alimentos selecionados
                         </div>
                     )}
@@ -151,7 +148,7 @@ const evaluateChoices = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className={`rounded-2xl bg-blue-900 p-3 text-center text-white cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
+                                        className={`w-25 h-25 rounded-2xl bg-blue-900 p-3 text-white text-center flex items-center flex-col justify-center cursor-pointer ${isSelected ? 'ring-4 ring-green-400' : ''}`}
                                         onClick={() => toggleFood(food)}
                                     >
                                         <Image
@@ -169,10 +166,8 @@ const evaluateChoices = () => {
                         </div>
                     )}
 
-                    <div className="flex justify-evenly p-0.5 space-x-2 text-white">
-                        <button className="w-1/2 rounded-2xl bg-red-500 p-3">
-                            <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
-                        </button>
+                    <div className="flex justify-evenly p-0.5 space-x-2 text-white text-center">
+                            <GameButton class="w-1/2 rounded-2xl bg-red-500 p-3 " gamename="Voltar ao menu" url="/Games/GameSelector"/>
                         <button
                             className={`w-1/2 rounded-2xl p-3 ${selectedFoods.length === maxSelections ? 'bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
                                 }`}

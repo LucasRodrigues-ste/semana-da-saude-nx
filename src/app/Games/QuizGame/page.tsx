@@ -51,15 +51,15 @@ export default function QuizGame() {
 
         {perguntaAtual && (
           <div className="rounded-4xl bg-white/50 backdrop:blur-md p-3 flex flex-col space-y-2 text-black">
-            <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
+            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
               {indiceAtual + 1}/10
             </div>
 
-            <div className="rounded-4xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
+            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
               {perguntaAtual.pergunta}
             </div>
 
-            <form className="rounded-4xl bg-white/75 p-3 space-y-3 drop-shadow-lg drop-shadow-black/25">
+            <form className="rounded-2xl bg-white/75 p-3 space-y-3 drop-shadow-lg drop-shadow-black/25">
               {perguntaAtual.opcoes.map((opcao: string, index: number) => (
                 <div key={index}>
                   <input
@@ -77,15 +77,16 @@ export default function QuizGame() {
               ))}
             </form>
 
-            <div className="flex justify-evenly p-0.5 space-x-2 text-white">
-
-              <button
-                className="w-full rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3"
-                onClick={handleResponder}
-              >
-                Responder Pergunta
-              </button>
-            </div>
+            {!mostrarCuriosidade && (
+              <div className="flex justify-evenly p-0.5 space-x-2 text-white">
+                <button
+                  className="w-full rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3"
+                  onClick={handleResponder}
+                >
+                  Responder Pergunta
+                </button>
+              </div>
+            )}
 
             {mostrarCuriosidade && (
               <div className="rounded-4xl bg-white/75 text-center text-black p-3">
@@ -112,11 +113,11 @@ export default function QuizGame() {
               🎉 Fim do quiz! Obrigado por jogar! 🎉
             </p>
 
-            <button className="w-full rounded-2xl bg-red-500 drop-shadow-lg drop-shadow-black/50 p-3 text-white">
-              <GameButton gamename="Voltar ao menu" url="/Games/GameSelector"/>
-            </button>
+
           </div>
         )}
+
+        <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector" />
 
       </Hero>
       <Footer />

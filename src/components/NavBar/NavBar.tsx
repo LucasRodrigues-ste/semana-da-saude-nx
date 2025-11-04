@@ -22,7 +22,6 @@ export default function NavBar() {
                 <li className="p-3 hover:bg-sky-300 rounded-2xl"><NavItem menuname='Campanha' url='/'></NavItem></li>
                 <li className="p-3 hover:bg-sky-300 rounded-2xl" ><NavItem menuname='Games' url='/Games/GameSelector'></NavItem></li>
                 <li className="p-3 hover:bg-sky-300 rounded-2xl" ><NavItem menuname='Cartilha' url='/Booklet'></NavItem></li>
-                <li className="p-3 hover:bg-sky-300 rounded-2xl" ><NavItem menuname='Sobre' url='../About'></NavItem></li>
             </ul>
 
             <div className="xl:hidden">
