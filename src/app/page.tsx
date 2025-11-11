@@ -57,7 +57,7 @@ export default function HealthCampaing() {
             <div className=" p-5 rounded-3xl bg-white drop-shadow-xs drop-shadow-black/50 text-black space-y-4  text-justify">
               <h4 className='text-2xl p-1 font-semibold text-center text-blue-900'>A receita da sua família em nossos restaurantes</h4>
               <span className="text-justify">
-                Compartilhe com a gente aquele prato especial da sua família para participar do <strong>"Sabores da Nossa Historia"</strong>. Ao final da campanha, <strong>ele poderá ser a estrela dos restaurantes em todas as nossas plantas no Brasil</strong>, além de compor um e-book com várias receitas de colegas em todo o pais.
+                Compartilhe com a gente aquele prato especial da sua família para participar do <strong>&quot;Sabores da Nossa Historia&quot;</strong>. Ao final da campanha, <strong>ele poderá ser a estrela dos restaurantes em todas as nossas plantas no Brasil</strong>, além de compor um e-book com várias receitas de colegas em todo o pais.
               </span>
             </div>
           </Link>
