@@ -12,37 +12,39 @@ export default function GameSelector() {
 
             <Hero>
 
-                <h1 className="rounded-4xl bg-white/90 text-center text-black text-3xl font-extrabold drop-shadow-xl p-3">Jogos dos Alimentos Saudáveis</h1>
+                <h1 className="rounded-4xl bg-white text-center text-blue-900 text-3xl font-extrabold drop-shadow-xl p-3">Jogos dos <br /> Alimentos Saudáveis </h1>
 
                 <div className="space-y-3">
 
                     <div className="rounded-2xl bg-white/60 p-3 flex flex-col space-y-2 text-black text-center">
+                        <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold  drop-shadow-xs drop-shadow-black/50" gamename="Sabores e Saberes" url="/Games/QuizGame" />
                         <p>
-                            Hora de testar seus conhecimentos! Neste quiz, você responderá 10 perguntas sobre dieta, nutrientes e alguns mitos sobre alimentação.
+                            Hora de testar seus conhecimentos! Neste quiz, você responderá 10 perguntas sobre dieta, nutrientes e alguns <strong>mitos sobre alimentação</strong>.
                         </p>
 
-                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg" gamename="Sabores e Saberes" url="/Games/QuizGame"/>
                     </div>
 
                     <div className="rounded-2xl bg-white/60 p-3 flex flex-col space-y-2 text-black text-center">
 
+                        <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold  drop-shadow-xs drop-shadow-black/50" gamename="Jogo da Memoria" url="/Games/MemoryGame" />
                         <p>
-                            Um game bom para o corpo e a mente. Combine as cartas corretamente, receba informações sobre os alimentos e descubra como eles ajudam a sua saúde.
+                            Combine as cartas corretamente, receba informações sobre os alimentos e <strong>descubra como eles ajudam a sua saúde</strong>.
                         </p>
 
-                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg " gamename="Jogo da Memoria" url="/Games/MemoryGame"/>
                     </div>
 
                     <div className="rounded-2xl bg-white/60 p-3 flex flex-col space-y-2 text-black text-center">
 
+                        <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold  drop-shadow-xs drop-shadow-black/50" gamename="Monte seu Prato" url="/Games/FoodChoiceGame" />
                         <p>
-                           Neste game, você aprende como montar uma refeição equilibrada, com carboidratos, proteínas, fibras e vitaminas na medida certa. E aí, qual nota seu prato merece?
+                            Neste game, você aprende como montar uma refeição equilibrada, com carboidratos, proteínas, fibras e vitaminas na medida certa. <br/> <strong>E aí, qual nota seu prato merece?</strong>
                         </p>
 
-                            <GameButton class="uppercase rounded-2xl bg-blue-900 p-3 text-white text-center text-5 font-bold drop-shadow-lg" gamename="Monte seu Prato" url="/Games/FoodChoiceGame"/>
                     </div>
 
                 </div>
+
+                <GameButton class="uppercase rounded-2xl bg-[#e42313] p-3 text-white text-center text-5 font-bold  drop-shadow-xs drop-shadow-black/50" gamename="Voltar" url="/" />
 
             </Hero>
 
