@@ -117,26 +117,26 @@ const evaluateChoices = () => {
         <>
             <NavBar />
             <Hero>
-                <h2 className="rounded-4xl bg-white/70 text-center text-black text-3xl font-extrabold drop-shadow-xl">
+                <h2 className="rounded-4xl bg-white text-center p-3 text-blue-900 text-3xl font-extrabold drop-shadow-xl">
                     Monte seu Prato
                 </h2>
 
                 <div className="rounded-4xl p-3 flex flex-col space-y-2 text-black">
                     {showResults && (
                         <>
-                            <div className={`rounded-2xl bg-white/75 p-2 flex justify-evenly text-balck ${getFeedbackColor(score)}`}>
+                            <div className={`rounded-2xl bg-white/75 p-3 flex justify-evenly text-balck ${getFeedbackColor(score)}`}>
                                 <span className='font-bold text-3xl'>Adequação:</span>
                                 <div className='font-bold text-3xl'>{score}%</div>
                             </div>
 
-                            <div className={`rounded-2xl bg-white/75 p-2 text-3xl text-center ${getFeedbackColor(score)}`}>
+                            <div className={`rounded-2xl bg-white/75 p-5 text-3xl text-center ${getFeedbackColor(score)}`}>
                                 {feedback}
                             </div>
                         </>
                     )}
 
                     {!showResults && (
-                        <div className="rounded-2xl bg-white/95 p-2 text-center font-bold sticky top-2 z-10">
+                        <div className="rounded-2xl bg-white/80 p-2 text-center  sticky top-2 z-10">
                             {selectedFoods.length}/{maxSelections} alimentos selecionados
                         </div>
                     )}
@@ -167,14 +167,14 @@ const evaluateChoices = () => {
                     )}
 
                     <div className="flex justify-evenly p-0.5 space-x-2 text-white text-center">
-                            <GameButton class="w-1/2 rounded-2xl bg-red-500 p-3 " gamename="Voltar ao menu" url="/Games/GameSelector"/>
+                            <GameButton class="w-1/2 rounded-2xl bg-[#e42313] p-3 uppercase font-semibold " gamename="Voltar" url="/Games/GameSelector"/>
                         <button
-                            className={`w-1/2 rounded-2xl p-3 ${selectedFoods.length === maxSelections ? 'bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+                            className={`w-1/2 rounded-2xl p-3 font-semibold uppercase ${selectedFoods.length === maxSelections ? 'bg-blue-900' : 'bg-gray-400 cursor-not-allowed'
                                 }`}
                             onClick={evaluateChoices}
                             disabled={selectedFoods.length !== maxSelections}
                         >
-                            Avaliar alimentação
+                            avaliar
                         </button>
 
                     </div>

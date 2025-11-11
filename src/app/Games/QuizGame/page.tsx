@@ -45,17 +45,17 @@ export default function QuizGame() {
       <NavBar />
       <Hero>
 
-        <h2 className="rounded-4xl bg-white/50 backdrop:blur-md text-center text-black text-3xl font-extrabold drop-shadow-xl">
+        <h2 className="rounded-4xl p-3 bg-white backdrop:blur-md text-center text-blue-900 text-3xl font-extrabold drop-shadow-xl">
           Sabores e Saberes
         </h2>
 
         {perguntaAtual && (
-          <div className="rounded-4xl bg-white/50 backdrop:blur-md p-3 flex flex-col space-y-2 text-black">
-            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
+          <div className="rounded-2xl bg-white/50 backdrop:blur-md p-3 flex flex-col space-y-2 text-black">
+            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25 text-blue-900 font-bold">
               {indiceAtual + 1}/10
             </div>
 
-            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25">
+            <div className="rounded-2xl bg-white/75 p-3 text-center drop-shadow-lg drop-shadow-black/25 font-bold ">
               {perguntaAtual.pergunta}
             </div>
 
@@ -80,7 +80,7 @@ export default function QuizGame() {
             {!mostrarCuriosidade && (
               <div className="flex justify-evenly p-0.5 space-x-2 text-white">
                 <button
-                  className="w-full rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3"
+                  className="w-full rounded-2xl bg-blue-900 drop-shadow-lg drop-shadow-black/50 p-3"
                   onClick={handleResponder}
                 >
                   Responder Pergunta
@@ -94,7 +94,7 @@ export default function QuizGame() {
                   ? "✅ Resposta correta!"
                   : "❌ Resposta incorreta."}
                 <br />
-                <strong>Curiosidade:</strong> {perguntaAtual.curiosidade}
+                <strong>Curiosidade:</strong> <br/> <span className="">{perguntaAtual.curiosidade}</span>
                 <br />
                 <button
                   className="w-full mt-2 rounded-2xl bg-blue-700 drop-shadow-lg drop-shadow-black/50 p-3 text-white"
@@ -117,7 +117,7 @@ export default function QuizGame() {
           </div>
         )}
 
-        <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector" />
+        <GameButton class="rounded-2xl bg-[#e42313] drop-shadow-lg p-3 text-white uppercase font-semibold text-center" gamename="Voltar" url="/Games/GameSelector" />
 
       </Hero>
       <Footer />

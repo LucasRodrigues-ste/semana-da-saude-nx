@@ -83,7 +83,7 @@ export default function MemoryGame() {
     <>
       <NavBar />
       <Hero>
-        <h2 className="rounded-4xl bg-white/90 text-center text-black text-3xl font-extrabold drop-shadow-xl p-2">
+        <h2 className="rounded-4xl bg-white/90 text-center text-blue-900 text-3xl font-extrabold drop-shadow-xl p-2">
           Jogo da Memória
         </h2>
 
@@ -118,7 +118,7 @@ export default function MemoryGame() {
             ))}
           </div>
 
-            <GameButton class="rounded-2xl bg-red-500 drop-shadow-lg p-3 text-white text-center" gamename="Voltar ao menu" url="/Games/GameSelector"/>
+            <GameButton class="rounded-2xl bg-[#e42313] drop-shadow-lg p-3 uppercase font-semibold text-white text-center" gamename="Voltar" url="/Games/GameSelector"/>
 
           {matchedPairs === cards.length / 2 && (
             <div className="rounded-4xl bg-green-200 text-center text-black p-3 mt-4 font-bold">
