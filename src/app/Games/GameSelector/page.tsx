@@ -12,7 +12,7 @@ export default function GameSelector() {
 
             <Hero>
 
-                <h1 className="rounded-4xl bg-white text-center text-blue-900 text-3xl font-extrabold drop-shadow-xl p-3">Jogos dos <br /> Alimentos Saudáveis </h1>
+                <h1 className="rounded-4xl bg-white text-center text-blue-900 text-3xl font-extrabold drop-shadow-xl p-3">Jogos da Saúde</h1>
 
                 <div className="space-y-3">
 
